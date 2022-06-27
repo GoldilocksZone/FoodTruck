@@ -216,7 +216,7 @@ public class FoodTruckApp {
 	private int inputRating() {			
 		int rating;
 		System.out.print("Rating: (1-5) ");
-		try {									// Ensure user enters an integer
+		try {							// Ensure user enters an integer
 			rating = scanner.nextInt();
 			scanner.nextLine();					// Catch newline character after Scanner.nextInt()
 		} catch (InputMismatchException e) {	// If input not an integer, try again

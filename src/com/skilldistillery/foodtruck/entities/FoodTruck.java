@@ -14,14 +14,14 @@ import java.util.UUID;
  */
 
 public class FoodTruck {
-	private UUID id = null;
-	private String name = null, category = null;
+	private UUID id;
+	private String name, category;
 	private int rating = -1;
 	
 	public FoodTruck () {
 		this.id = UUID.randomUUID();
-		this.name = "unknown";
-		this.category = "unknown";
+		this.name = null;
+		this.category = null;
 	}
 	
 	public FoodTruck (String name) {
@@ -39,6 +39,10 @@ public class FoodTruck {
 		this.rating = rating;
 	}
 
+	public FoodTruck (FoodTruck foodTruck) {
+		this(foodTruck.name, foodTruck.category, foodTruck.rating);
+	}
+	
 	public String getName() {
 		return new String(this.name);
 	}

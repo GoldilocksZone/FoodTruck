@@ -1,10 +1,7 @@
 package com.skilldistillery.foodtruck.entities;
 
-import java.util.UUID;
-
 /*
  * 	Directions:
- * 	TODO (complete)
  * 	You will define a FoodTruck class with fields for:
  * 	-	a unique numeric id,
  * 	-	a name ("TacoRific", "Mediterranean Medic", etc.),
@@ -14,33 +11,27 @@ import java.util.UUID;
  */
 
 public class FoodTruck {
-	private UUID id;
+	private int id;
 	private String name, category;
-	private int rating = -1;
+	private int rating;
 	
-	public FoodTruck () {
-		this.id = UUID.randomUUID();
-		this.name = null;
-		this.category = null;
+	public FoodTruck() {
+		
 	}
 	
-	public FoodTruck (String name) {
-		this();
+	public FoodTruck (int id) {
+		this.id = id;
+	}
+	
+	public FoodTruck (int id, String name, String category, int rating) {
+		this(id);
 		this.name = name;
-	}
-	
-	public FoodTruck (String name, String category) {
-		this(name);
 		this.category = category;
-	}
-	
-	public FoodTruck (String name, String category, int rating) {
-		this(name, category);
 		this.rating = rating;
 	}
 
 	public FoodTruck (FoodTruck foodTruck) {
-		this(foodTruck.name, foodTruck.category, foodTruck.rating);
+		this(foodTruck.id, foodTruck.name, foodTruck.category, foodTruck.rating);
 	}
 	
 	public String getName() {
@@ -66,6 +57,18 @@ public class FoodTruck {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder description = new StringBuilder();
+		description.append("\n").append(this.name).append(": \n");
+		description.append("\tid = ").append(this.id).append("\n");
+		description.append("\tcategory = ").append(this.category).append("\n");
+		description.append("\trating = ").append(this.rating);
+		
+		return description.toString();
+	}
+	
 	
 	
 }
